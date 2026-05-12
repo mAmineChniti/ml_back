@@ -32,9 +32,9 @@ from .schemas import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = PROJECT_ROOT / "accounting_data.csv"
-ARTIFACT_DIR = PROJECT_ROOT / "backend" / "artifacts"
+ARTIFACT_DIR = PROJECT_ROOT / "artifacts"
 ARTIFACT_PATH = ARTIFACT_DIR / "dso_model_artifacts.joblib"
 ARTIFACT_VERSION = 1
 
