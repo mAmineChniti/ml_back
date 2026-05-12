@@ -10,12 +10,15 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends build-essential gcc \
     && rm -rf /var/lib/apt/lists/*
 
-COPY backend/requirements.txt ./backend/requirements.txt
-RUN pip install --upgrade pip && pip install -r backend/requirements.txt
+# Install Python dependencies from the repository root requirements.txt
+COPY requirements.txt ./requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
+# Copy application files and data
 COPY accounting_data.csv ./accounting_data.csv
-COPY backend ./backend
+COPY app ./app
+COPY artifacts ./artifacts
 
-WORKDIR /app/backend
+WORKDIR /app
 EXPOSE 8000
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
