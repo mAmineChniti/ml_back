@@ -51,9 +51,6 @@ Thumbs.db
 logs/
 *.log
 
-# Artifacts (large model files)
-artifacts/*.joblib
-
 # Docker
 docker-compose.override.yml
 
